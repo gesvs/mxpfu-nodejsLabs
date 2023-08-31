@@ -102,3 +102,7 @@ router.delete("/:email", (req, res) => {
 });
 
 module.exports=router;
+
+
+//hasta aquí 31Agosto2023
+//next: Exercise 6: Creating the DELETE method:
