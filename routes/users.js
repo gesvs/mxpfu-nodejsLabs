@@ -21,19 +21,31 @@ let users = [
         email:"joyalwhite@gamil.com",
         DOB:"21-03-1989",
     },
+    {
+        "firstName": "Jesús",
+        "lastName": "Asesino",
+        "email": "asesinojesus@asesinosreunidos.com",
+        "DOB": "10/10/1969"
+    },
 ];
 
 // GET request: Retrieve all users
 router.get("/",(req,res)=>{
-  // Copy the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
+// Copy the code here
+    res.send(users);
+  //res.send("Yet to be implemented")//This line is to be replaced with actual return value
 });
 
 // GET by specific ID request: Retrieve a single user with email ID
-router.get("/:email",(req,res)=>{
+//router.get("/:email",(req,res)=>{
   // Copy the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
+  router.get("/:email",(req,res)=>{
+    const email = req.params.email;
+    let filtered_users = users.filter((user) => user.email === email);
+    res.send(filtered_users);
 });
+  //res.send("Yet to be implemented")//This line is to be replaced with actual return value
+//});
 
 
 // POST request: Create a new user
