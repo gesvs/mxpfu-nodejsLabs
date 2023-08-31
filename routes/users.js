@@ -32,7 +32,9 @@ let users = [
 // GET request: Retrieve all users
 router.get("/",(req,res)=>{
 // Copy the code here
-    res.send(users);
+    //res.send(users);
+    //update
+    res.send(JSON.stringify({users},null,4));
   //res.send("Yet to be implemented")//This line is to be replaced with actual return value
 });
 
@@ -96,10 +98,15 @@ router.get("/",(req,res)=>{
 
 
 // DELETE request: Delete a user by email ID
-router.delete("/:email", (req, res) => {
+//router.delete("/:email", (req, res) => {
   // Copy the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
-});
+  router.delete("/:email", (req, res) => {
+    const email = req.params.email;
+    users = users.filter((user) => user.email != email);
+    res.send(`User with the email  ${email} deleted.`);
+  });
+  //res.send("Yet to be implemented")//This line is to be replaced with actual return value
+//});
 
 module.exports=router;
 
